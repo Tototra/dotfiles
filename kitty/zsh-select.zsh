@@ -56,4 +56,9 @@ _zs_bind delete '^?'     backward-delete-char  # ⌫
 _zs_bind delete '^H'     backward-delete-char
 _zs_bind delete '\e[3~'  delete-char           # Suppr (fn+⌫)
 
+
+# Annuler / rétablir (cmd+z / cmd+shift+z dans Kitty)
+bindkey -M emacs '^_'   undo
+bindkey -M emacs '^X^Y' redo
+
 unset _zs_n
