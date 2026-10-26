@@ -61,4 +61,9 @@ _zs_bind delete '\e[3~'  delete-char           # Suppr (fn+⌫)
 bindkey -M emacs '^_'   undo
 bindkey -M emacs '^X^Y' redo
 
+# cd sans taper cd : `Documents/`, `..`, `~/Developer` suffisent
+# cdpath : les dossiers de ton home marchent depuis n'importe où (le dossier courant reste prioritaire)
+setopt auto_cd
+cdpath=(. $HOME)
+
 unset _zs_n
