@@ -66,4 +66,12 @@ bindkey -M emacs '^X^Y' redo
 setopt auto_cd
 cdpath=(. $HOME)
 
+# Commande `code` (VS Code) : ajoute son dossier au PATH s'il existe
+for _vsc in "/Applications/Visual Studio Code.app" "$HOME/Applications/Visual Studio Code.app" \
+            "/Applications/Visual Studio Code - Insiders.app" "$HOME/Applications/Visual Studio Code - Insiders.app"; do
+  [[ -d "$_vsc/Contents/Resources/app/bin" ]] && path+=("$_vsc/Contents/Resources/app/bin")
+done
+(( $+commands[code] )) || (( ! $+commands[code-insiders] )) || alias code=code-insiders
+unset _vsc
+
 unset _zs_n
